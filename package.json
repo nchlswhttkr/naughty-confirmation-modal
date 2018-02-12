@@ -2,6 +2,7 @@
   "name": "naughty-confirmation-modal",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://nickeloz.github.io/naughty-confirmation-modal",
   "dependencies": {
     "material-ui": "^1.0.0-beta.33",
     "prop-types": "^15.6.0",
