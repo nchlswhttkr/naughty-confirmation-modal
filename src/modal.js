@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { bool, func, string } from 'prop-types'
+import { bool, func } from 'prop-types'
+
+import { withStyles } from 'material-ui/styles'
 
 import {
   Dialog,
@@ -10,6 +12,14 @@ import {
   Button,
   TextField
 } from 'material-ui'
+
+const styles = theme => ({
+  promptStyle: {
+    textAlign: 'center',
+    fontWeight: 700,
+    margin: '16px 0'
+  }
+})
 
 class NaughtyModal extends Component {
   constructor(props) {
@@ -24,7 +34,7 @@ class NaughtyModal extends Component {
     const { prompt } = this.state
     if (prompt.length - input.length < 3) {
       this.setState({
-        prompt: prompt,
+        prompt: prompt + 'f',
         input
       })
     } else {
@@ -35,7 +45,7 @@ class NaughtyModal extends Component {
   }
 
   render() {
-    const { open, onClose } = this.props
+    const { open, onClose, classes: { promptStyle } } = this.props
     const { prompt, input } = this.state
     return (
       <Dialog open={open}>
@@ -43,11 +53,14 @@ class NaughtyModal extends Component {
         <DialogContent>
           <DialogContentText>
             Please type out the following line to confirm your action and close
-            the Dialog
+            the Dialog.
           </DialogContentText>
-          <DialogContentText>{prompt}</DialogContentText>
+          <DialogContentText classes={{ root: promptStyle }}>
+            {prompt}
+          </DialogContentText>
           <TextField
             onChange={e => this.handleInputChange(e.target.value)}
+            autoFocus
             fullWidth
           />
         </DialogContent>
@@ -66,4 +79,4 @@ NaughtyModal.propTypes = {
   onClose: func.isRequired
 }
 
-export default NaughtyModal
+export default withStyles(styles)(NaughtyModal)
