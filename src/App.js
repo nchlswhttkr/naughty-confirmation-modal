@@ -1,18 +1,29 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
+
+import { Button } from 'material-ui'
+
+import NaughtyModal from './modal'
 
 class App extends Component {
-  render () {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false
+    }
+  }
+
+  setIsModalOpen = open => {
+    this.setState({ open })
+  }
+
+  render() {
+    const { open } = this.state
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h1 className='App-title'>Welcome to React</h1>
-        </header>
-        <p className='App-intro'>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Button variant="raised" onClick={() => this.setIsModalOpen(true)}>
+          Confirm Action
+        </Button>
+        <NaughtyModal open={open} onClose={() => this.setIsModalOpen(false)} />
       </div>
     )
   }
