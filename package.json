@@ -4,6 +4,7 @@
   "private": false,
   "dependencies": {
     "material-ui": "^1.0.0-beta.33",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
@@ -11,15 +12,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "standard && react-scripts test --env=jsdom",
-    "test:ci": "CI=true yarn test",
+    "test": "react-scripts test --env=jsdom",
+    "test:ci": "CI=true yarn run test",
     "eject": "react-scripts eject",
-    "lint": "standard --fix"
+    "lint": "prettier --write --config .prettierrc",
+    "lint:all": "yarn run lint \"./**/**.{js,json,css,md}\""
   },
   "devDependencies": {
     "husky": "^0.15.0-rc.8",
     "lint-staged": "^6.1.0",
-    "standard": "^10.0.3"
+    "prettier": "^1.10.2"
   },
   "husky": {
     "hooks": {
@@ -28,6 +30,6 @@
     }
   },
   "lint-staged": {
-    "*.js": ["yarn lint", "git add"]
+    "*.{js,json,css,md}": ["yarn run lint", "git add"]
   }
 }
