@@ -1,0 +1,33 @@
+{
+  "name": "bad-confirmation-modal",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "material-ui": "^1.0.0-beta.33",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "standard && react-scripts test --env=jsdom",
+    "test:ci": "CI=true yarn test",
+    "eject": "react-scripts eject",
+    "lint": "standard --fix"
+  },
+  "devDependencies": {
+    "husky": "^0.15.0-rc.8",
+    "lint-staged": "^6.1.0",
+    "standard": "^10.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint-staged && yarn test:ci",
+      "pre-push": "yarn test:ci"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["yarn lint", "git add"]
+  }
+}
