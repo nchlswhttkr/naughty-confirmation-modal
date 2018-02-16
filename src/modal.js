@@ -21,6 +21,8 @@ const styles = theme => ({
   }
 })
 
+const originalPrompt = 'abcde';
+
 class NaughtyModal extends Component {
   constructor(props) {
     super(props)
@@ -31,22 +33,19 @@ class NaughtyModal extends Component {
   }
 
   handleInputChange = input => {
-    const { prompt } = this.state
-    if (prompt.length - input.length < 3) {
-      this.setState({
-        prompt: prompt + 'f',
-        input
-      })
-    } else {
-      this.setState({
-        input
-      })
+    let f = '';
+    for (let i = 0; i < input.length; i++) {
+      f += 'f';
     }
+    this.setState({
+      prompt: originalPrompt + f,
+      input
+    })
   }
 
   render() {
     const { open, onClose, classes: { promptStyle } } = this.props
-    const { prompt, input } = this.state
+    const { prompt } = this.state
     return (
       <Dialog open={open}>
         <DialogTitle>Confirm Action</DialogTitle>
@@ -65,7 +64,7 @@ class NaughtyModal extends Component {
           />
         </DialogContent>
         <DialogActions>
-          <Button disabled={prompt !== input} onClick={onClose}>
+          <Button disabled={ prompt === originalPrompt } onClick={onClose}>
             Confirm
           </Button>
         </DialogActions>
