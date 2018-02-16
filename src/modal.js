@@ -21,6 +21,8 @@ const styles = theme => ({
   }
 })
 
+const originalPrompt = 'abcde'
+
 class NaughtyModal extends Component {
   constructor(props) {
     super(props)
@@ -31,17 +33,14 @@ class NaughtyModal extends Component {
   }
 
   handleInputChange = input => {
-    const { prompt } = this.state
-    if (prompt.length - input.length < 3) {
-      this.setState({
-        prompt: prompt + 'f',
-        input
-      })
-    } else {
-      this.setState({
-        input
-      })
+    let f = ''
+    for (let i = 0; i < input.length; i++) {
+      f += 'f'
     }
+    this.setState({
+      prompt: originalPrompt + f,
+      input
+    })
   }
 
   render() {
