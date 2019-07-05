@@ -1,6 +1,8 @@
 # naughty-confirmation-modal
 
-[![Build Status](https://travis-ci.org/nickeloz/naughty-confirmation-modal.svg?branch=master)](https://travis-ci.org/nickeloz/naughty-confirmation-modal)
+**This project is now archived, and taken off GH Pages**
+
+[![Build Status](https://travis-ci.org/nchlswhttkr/naughty-confirmation-modal.svg?branch=master)](https://travis-ci.org/nchlswhttkr/naughty-confirmation-modal)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 The perfect imperfect dialog box for confirming user actions!
