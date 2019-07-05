@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bool, func } from 'prop-types'
 
-import { withStyles } from 'material-ui/styles'
+import { withStyles } from '@material-ui/core/styles'
 
 import {
   Dialog,
@@ -11,7 +11,7 @@ import {
   DialogActions,
   Button,
   TextField
-} from 'material-ui'
+} from '@material-ui/core'
 
 const styles = theme => ({
   promptStyle: {
@@ -44,7 +44,11 @@ class NaughtyModal extends Component {
   }
 
   render() {
-    const { open, onClose, classes: { promptStyle } } = this.props
+    const {
+      open,
+      onClose,
+      classes: { promptStyle }
+    } = this.props
     const { prompt, input } = this.state
     return (
       <Dialog open={open}>

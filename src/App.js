@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import { withStyles } from 'material-ui/styles'
-import { Button, Paper, Typography } from 'material-ui'
+import { withStyles } from '@material-ui/core/styles'
+import { Button, Paper, Typography } from '@material-ui/core'
 
 import NaughtyModal from './modal'
 
@@ -34,7 +34,9 @@ class App extends Component {
   }
 
   render() {
-    const { classes: { root, title, button } } = this.props
+    const {
+      classes: { root, title, button }
+    } = this.props
     const { open } = this.state
     return (
       <Paper classes={{ root: root }}>

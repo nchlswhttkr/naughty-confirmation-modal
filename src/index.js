@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 
 const theme = createMuiTheme()
 
